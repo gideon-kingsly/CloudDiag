@@ -1,6 +1,6 @@
 const API = window.location.hostname === "localhost"
     ? "http://127.0.0.1:8000"
-    : "YOUR_RENDER_BACKEND_URL";
+    : "https://clouddiag-api.onrender.com";
 
 console.log("CloudDiag JavaScript loaded successfully");
 
