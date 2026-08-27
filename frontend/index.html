@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudDiag</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <h1>☁️ CloudDiag</h1>
+        <p>Cloud Support Troubleshooting Dashboard</p>
+    </header>
+
+    <!-- Statistics -->
+    <section class="stats">
+
+        <div class="stat-card">
+            <h3>Ping Checks</h3>
+            <span id="pingCount">0</span>
+        </div>
+
+        <div class="stat-card">
+            <h3>DNS Lookups</h3>
+            <span id="dnsCount">0</span>
+        </div>
+
+        <div class="stat-card">
+            <h3>Port Checks</h3>
+            <span id="portCount">0</span>
+        </div>
+
+        <div class="stat-card">
+            <h3>Website Checks</h3>
+            <span id="websiteCount">0</span>
+        </div>
+
+    </section>
+
+    <section class="summary">
+
+    <div class="summary-card">
+
+        <h3>📡 Ping</h3>
+
+        <span id="pingBadge" class="badge unknown">
+            Not Checked
+        </span>
+
+    </div>
+
+    <div class="summary-card">
+
+        <h3>🌍 DNS</h3>
+
+        <span id="dnsBadge" class="badge unknown">
+            Not Checked
+        </span>
+
+    </div>
+
+    <div class="summary-card">
+
+        <h3>🔌 Port</h3>
+
+        <span id="portBadge" class="badge unknown">
+            Not Checked
+        </span>
+
+    </div>
+
+    <div class="summary-card">
+
+        <h3>🌐 Website</h3>
+
+        <span id="websiteBadge" class="badge unknown">
+            Not Checked
+        </span>
+
+    </div>
+
+</section>
+
+    <!-- Dashboard -->
+    <section class="container">
+
+        <!-- Ping -->
+        <div class="card">
+
+            <h2>📡 Ping Checker</h2>
+
+            <input
+                type="text"
+                id="pingHost"
+                placeholder="Enter Host (google.com)"
+            >
+
+            <button onclick="pingHost()">
+                Check Ping
+            </button>
+
+            <div id="pingResult" class="result-box"></div>
+
+        </div>
+
+        <!-- DNS -->
+        <div class="card">
+
+            <h2>🌍 DNS Lookup</h2>
+
+            <input
+                type="text"
+                id="dnsHost"
+                placeholder="Enter Host (google.com)"
+            >
+
+            <button onclick="dnsLookup()">
+                Lookup DNS
+            </button>
+
+            <div id="dnsResult" class="result-box"></div>
+
+        </div>
+
+        <!-- Port -->
+        <div class="card">
+
+            <h2>🔌 Port Checker</h2>
+
+            <input
+                type="text"
+                id="portHost"
+                placeholder="Enter Host"
+            >
+
+            <input
+                type="number"
+                id="portNumber"
+                placeholder="Port Number (443)"
+            >
+
+            <button onclick="portCheck()">
+                Check Port
+            </button>
+
+            <div id="portResult" class="result-box"></div>
+
+        </div>
+
+        <!-- Website -->
+        <div class="card">
+
+            <h2>🌐 Website Health</h2>
+
+            <input
+                type="text"
+                id="websiteUrl"
+                placeholder="https://example.com"
+            >
+
+            <button onclick="websiteCheck()">
+                Check Website
+            </button>
+
+            <div id="websiteResult" class="result-box"></div>
+
+        </div>
+
+    </section>
+
+    <!-- History -->
+
+    <section class="history-section">
+
+    <h2>📋 Recent Diagnostics</h2>
+
+    <div class="history-scroll">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Target</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+
+            <tbody id="historyTable">
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            CloudDiag v1.0 |
+            Built with FastAPI, Python, SQLite & JavaScript
+        </p>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
